@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>입력양식및 폼 태그</title>
+</head>
+<body>
+    <h1>폼 관련 태그</h1>
+    <p>
+        from태그 내의 submit버튼클릭시 해당 from내에 작성된
+        사용자가 입력한 값들이 서버에 전달된다<br>
+        [표현법]
+        from action="속성값" method="속성값"<br>
+        <br>
+        *action 속성: from태그 내부의 입력한 값들을 전달할 서버의 경로
+        <br>
+        *method 속성: 서버로 전달시 전송방식을 저장하는 속성<br>
+        >get/post : 두가지 방식이 존재함<br>
+        1. get: 요청시 사용자가 전달한 값들이 url에 노출되는 방식<br>
+        2. post : 요청시 사용자가 전달한 값들이url에 노출되지 않는 방식<br> 
+    </p>
+
+    <fieldset>
+        <!--그룹을 묶는 태그-->
+        <form action="serchSumthing">
+            검색 내용: <input type="text" name="keyword"/>
+            <input type="submit" value="검색">
+
+        </form>
+    </fieldset>
+
+    <form action="test" method="post">
+        <fieldset>
+            <legend>제목1</legend>
+            입력1: <input type="text" name="text1" id="text3"><br>
+            입력2: <input type="text" name="text2" id="text4"><br>
+        </fieldset>
+        <input type="submit" value="제출">
+
+    </form>
+
+    <hr>
+    <h2> text와 관련된 input태그의 타입</h2>
+
+    <form >
+        <h3>type="text"</h3>
+        <p>
+            한 줄 짜리 텍스트를 입력할 수 있는 텍스트박스(기본값)
+        </p>
+        <label>아이디:</label>
+        <input name="user-id" placeholder="아이디를 입력하세요"
+        maxlength="12" required> <br>
+        <h3>type="password"</h3>
+        <p>
+            비밀번호를 입력 할수있는 텍스트 상자
+        </p>
+        <label for="user-pwd">비밀번호:</label>
+        <input type="password" name="user-pwd" id="user-pwd" 
+        placeholder="비밀번호를 입력하세요"
+        maxlength="15">
+        <br>
+        <h3>tyep="Serch/url/email"</h3>
+        <p>
+            겉으로는 일반 텍스트 박스와 유사하지만 각 정보에맞게
+            세분화된 기능을 저장하는 타입들
+        </p>
+
+        검색: <input type="search" name="keyword" > <br>
+        url: <input type="url" name="homepage"><br>
+        email: <input type="email" name="emil" ><br>
+
+
+
+
+        <input type="submit" value="회원가입">
+    </form>
+
+
+    <h2>textarea태그</h2>
+    <p>
+        -여러 줄의 텍스트를 입력할 수 있는 박스 
+    </p>
+    <form>
+        <fieldset>
+            <legend>글작성</legend>
+            글제목: <input type="text" name="title" size="30"><br>
+            글내용: <textarea name="content" cols="30" rows="10" style="resize:none"></textarea>
+
+            <br><br>
+            <input type="submit" value="작성하기">
+        </fieldset>
+    </form>
+
+    <hr>
+    <h2>숫자와 관련된 input타입들</h2>
+
+    <form >
+        <h3>type "number"</h3>
+        <p>
+            -숫자값만 입력가능한 input태그 <br>
+            -스핀박스가 존재
+        </p>
+        수량 : <input type="number" name="amout" 
+        min="0" max="50" step="5" value="0"> <br>
+
+        <h3>type"range"</h3>
+        <p>
+            -슬라이드바를 통해 수자를 지정
+        </p>
+        점수 : <input type="range" name="score" min="0" max="100" step="20" value="0">
+
+        <br><br>
+    </form>
+
+    <hr>
+    <h2>날짜 및 시간과 관련된 input태그의 타입</h2>
+    <form>
+        <h3>type+ " date/mounth/week/time/datetime-local</h3>
+        dste: <input type="date" name="date" ><br>
+        mounth : <input type="month" name="mounth" id=""><br>
+        week : <input type="week" name="week" ><br>
+        time : <input type="time" name="time" ><br>
+        datetime-local : <input type="datetime-local" name="dd" ><br>
+
+
+        <input type="submit" value="제출"><br>
+        
+    </form>
+    <hr>
+    <h2>라디오버튼과 체크 박스</h2>
+    <form>
+        <h3>라디오버튼</h3>
+        <p>
+            -제시한 여러개의 값들중 오직 1개만 선택해야하는 경우 사용<br>
+            -서버로 요청시 선택된(checked) 체크박스의 velue값이 전송된다<br>
+            -name 속성값이 동일한 radio버튼끼리 하나의 그룹이 만들어진다
+        </p>
+
+        성별: <br>
+        <input type="radio" name="gender" id="X" value="X" checked> 선택안함 <br>
+        <input type="radio" name="gender" id="male" value="male">남자<br>
+        <input type="radio" name="gender" id="female" value="female">여자 <br>
+
+        <br><br>
+        <h3>체크박스</h3>
+        <p>
+            -제시한 여러개의 값들 중에서 여러개를 선택 해야 하는 경우 사용<br>
+            -현재 선택된 체크박스의 velue값들이 서버로 보내진다<br>
+            -name 속성값을 통일 시켜 하나의 그룹으로 만들어줘야한다
+        </p>
+
+        <input type="checkbox" name="topping" value="sausege"> 소세지<br>
+        <input type="checkbox" name="topping" value="vegetable">야채<br>
+        <input type="checkbox" name="topping" value="lamb">양고기<br>
+
+        <br><br>
+
+
+
+
+        <input type="submit" value="제출">
+    </form>
+
+    <hr>
+    <h2>select 태그와 option태그</h2>
+    <p>
+        - 사용자에게 직접 키보로 값을 입력받는게 아니라 내가 제시한 여러 옵션들 중 하나를 선택
+          할 수 있게 하는 태그<br>
+        - 서버로 요청시 현재 선택된(select) 값이 서버로 넘어 간다<br>
+        - 각 옵션 태그에 velue속성값을 명시한 경우 velue값이 서버로 넘어가고 
+        명시하지 않은 경우 컨텐츠 영역의 값이 서버로 전송된다.
+    </p>
+
+
+
+    <form>
+        국적: <select name="nationl" >
+            <option value="ko"> 한국</option>
+            <option> 중국</option>
+            <option selected> 미국</option>
+            <option> 북한</option>
+
+        </select>
+         <input type="submit" value="제출">
+
+    </form>
+
+<hr><br><br>
+
+    <form>
+        <fieldset>
+            <legend>회원가입 동의서</legend>
+            이용약관동의(필수) <br> <textarea name="" id="" 
+            cols="30" rows="10"style="resize:none"></textarea><br>
+            
+
+        
+            <input type="radio" name="ag" id="">동의 합니다
+            <input type="radio" name="ag" id="">동의 하지 않습니다<br><br>
+
+             개인정보수집 및 이용 동의(필수) <br> <textarea name="" id="" 
+             cols="30" rows="10"style="resize:none"></textarea><br>
+             <input type="radio" name="ag1" id="">동의 합니다
+            <input type="radio" name="ag1" id="">동의 하지 않습니다 <br><br>
+           <input type="checkbox" name="ag" id="">  모두 동의합니다 <br>
+           <input type="submit" value="취소">
+           <input type="submit" value="확인">
+        </fieldset>
+        <br><br>
+
+
+        <fieldset>
+            <legend>회원가입 양식</legend>
+            *아이디 <br>
+           
+            <input name="user-id" placeholder="아이디를 입력하세요"
+            maxlength="12" required> 
+            <input type="submit" value="아이디 중복 확인"><br><br>
+
+            *비밀번호 <br>
+            <input type="password" name="user-pwd" id="user-pwd" 
+            placeholder="비밀번호를 입력하세요"
+            maxlength="15"> <br><br>
+
+           *비밀번호 재확인 <br>
+            <input type="password" name="user-pwd" id="user-pwd" 
+            placeholder="비밀번호를 입력하세요"
+            maxlength="15"><br><br>
+
+            *이름 <br>
+            <input type="text"> <br><br>
+
+            *주민등록 번호 <br>
+            <input type="text" style="width: 100px;"> - 
+            <input type="text"  style="width: 100px;"><br><br>
+
+            *성별 <br>
+            선택안함<input type="radio" name="gender" >
+            남자<input type="radio" name="gender" >
+            여자<input type="radio" name="gender" >
+            <br><br>
+
+            *생년월일 <br>
+            <input type="date" name="" id=""> <br><br>
+
+            주소 <br>
+            <input type="text">
+            <br><br>
+
+            우편번호 <br>
+            <input type="text">
+            <input type="submit" value="우편번호 찾기">
+            <input type="checkbox" name="" id=""> 우편수신동의
+            <br><br>
+
+            휴대폰번호 <br>
+            <select name="" id="">
+                <option value="">010</option>
+            </select>-
+            <input type="text" style="width: 80px;"> - 
+            <input type="text"  style="width: 80px;">
+            <input type="checkbox" name="" id=""> 문자 수신 동의
+            <br><br>
+            <input type="submit" value="초기화">
+            <input type="submit" value="가입하기">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </fieldset>
+
+
+
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br><br><b><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
